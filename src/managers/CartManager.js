@@ -5,7 +5,7 @@ import ProductManager from "./ProductManager.js";
 const productAll = new ProductManager();
 class CartManager {
   constructor() {
-    this.path = "./src/models/carts.json";
+    this.path = "./src/data/carts.json";
   }
   readCarts = async () => {
     let carts = await fs.readFile(this.path, "utf-8");
