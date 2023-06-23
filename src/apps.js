@@ -1,6 +1,6 @@
 import express from "express";
-/* import ProductRouter from './routes/product.routes.js';
-import CartRouter from './routes/carts.routes.js'; */
+import ProductRouter from './routes/product.routes.js';
+import CartRouter from './routes/carts.routes.js';
 import handlebars from "express-handlebars";
 import __dirname from "./utils.js";
 /* import { randomInt } from "crypto"; */

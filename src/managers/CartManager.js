@@ -39,7 +39,7 @@ class CartManager {
     let cartAll = await this.readCarts();
     let cartFilter = cartAll.filter((cart) => cart.id != cartId);
 
-    if (cartById.products.some((prod) => prod.id === productId)) {
+    if (cartById.products.find((prod) => prod.id === productId)) {
       let moreProductInCart = cartById.products.find(
         (prod) => prod.id === productId
       );
