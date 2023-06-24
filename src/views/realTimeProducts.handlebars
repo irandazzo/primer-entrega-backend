@@ -1,9 +1,10 @@
-
-    <h1>Lista de Productos en Tiempo Real</h1>
-
-    <ul id="product-list">
+<h1>Lista de Productos en Tiempo Real</h1>
+    <ul>
         {{#each products}}
-        <li>{{this.title}}</li>
+        <li>Nombre: {{this.nombre}}</li>
+        <li>Apellido: {{this.apellido}}</li>
+        <li>Edad: {{this.edad}}</li>
+        <li>ID: {{this.id}}</li>
         {{/each}}
     </ul>
     

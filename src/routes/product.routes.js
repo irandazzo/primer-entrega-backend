@@ -29,4 +29,4 @@ ProductRouter.delete("/:id", async (req, res) =>{
     res.send(await product.deleteProducts(id));
 });
 
-export default ProductRouter
+export default ProductRouter;
