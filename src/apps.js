@@ -13,7 +13,7 @@ app.use(express.urlencoded({extended:true}));
 
 const port = 8080;
 const httpserver = app.listen(port, () => console.log(`Servidor Express Puerto ${port}`))
-const socketServer = new Server(httpserver)
+const io = new Server(httpserver)
 
 app.engine("handlebars", handlebars.engine());
 app.set("views", __dirname + "/views");
@@ -25,11 +25,20 @@ app.use("/api/products", ProductRouter);
 app.use("/api/cart", CartRouter);
 app.use('/api/realtimeproducts', viewRouter);
 
+/* Chatbox */
+let messages = [];
+io.on('connection', socket => {
+console.log("Tenemos un cliente conectado"); 
 
-socketServer.on('connection', data => {
-  console.log('Nuevo Ingreso ID: ' + data.id)
+    socket.on('message', data =>{
+    messages.push(data)
+    io.emit('messageLogs', messages)
+    console.log(data);
+  })
+  socket.on('authenticated', data =>{
+    socket.broadcast.emit('newUserConnected', data);
+  })
 });
-
-export { app, socketServer };
+export { app, io };
 
 
